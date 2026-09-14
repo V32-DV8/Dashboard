@@ -90,11 +90,20 @@ export default function ChartWidget() {
               interval={Math.floor(data.length / 6)}
             />
             <YAxis
+              yAxisId="price"
               domain={['auto', 'auto']}
               axisLine={false}
               tickLine={false}
               tick={{ fill: '#B0B0B0', fontSize: 10 }}
               orientation="right"
+            />
+            <YAxis
+              yAxisId="volume"
+              orientation="left"
+              axisLine={false}
+              tickLine={false}
+              tick={false}
+              domain={[0, (dataMax: number) => dataMax * 4]}
             />
             <Tooltip
               contentStyle={{
@@ -107,6 +116,7 @@ export default function ChartWidget() {
               itemStyle={{ color: '#FFFFFF' }}
             />
             <Area
+              yAxisId="price"
               type="monotone"
               dataKey="close"
               stroke="#FFD700"
@@ -115,7 +125,7 @@ export default function ChartWidget() {
               dot={false}
               activeDot={{ r: 4, fill: '#FFD700', stroke: '#000', strokeWidth: 2 }}
             />
-            <Bar dataKey="volume" fill="rgba(212, 175, 55, 0.15)" yAxisId="right" />
+            <Bar yAxisId="volume" dataKey="volume" fill="rgba(212, 175, 55, 0.15)" />
           </ComposedChart>
         </ResponsiveContainer>
       </div>
