@@ -1,1 +1,131 @@
 @import "tailwindcss";
+
+@theme {
+  --color-gold: #FFD700;
+  --color-gold-dark: #D4AF37;
+  --color-gold-light: #FFEB3B;
+  --color-surface-1: #000000;
+  --color-surface-2: #0a0a0a;
+  --color-surface-3: #111111;
+  --color-surface-4: #1a1a1a;
+  --color-surface-5: #1e1e1e;
+  --color-profit: #00FF88;
+  --color-loss: #FF3333;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #B0B0B0;
+  --color-border: #2a2a2a;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #D4AF37 #1a1a1a;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #D4AF37;
+  border-radius: 3px;
+}
+
+body {
+  background-color: #000000;
+  color: #FFFFFF;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+  50% { box-shadow: 0 0 10px 4px rgba(212, 175, 55, 0.2); }
+}
+
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 2s infinite;
+}
+
+.animate-ticker {
+  animation: ticker-scroll 60s linear infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+.glass-card {
+  background: rgba(26, 26, 26, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 8px;
+}
+
+.glass-card:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #D4AF37, #FFD700);
+}
+
+.gold-text {
+  background: linear-gradient(135deg, #D4AF37, #FFD700, #FFEB3B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gold-border {
+  border: 1px solid transparent;
+  background-image: linear-gradient(#1a1a1a, #1a1a1a), linear-gradient(135deg, #D4AF37, #FFD700);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #D4AF37, #FFD700);
+  color: #000000;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 6px 16px;
+  transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+  transform: translateY(-1px);
+}
+
+.btn-outline-gold {
+  background: transparent;
+  border: 1px solid #D4AF37;
+  color: #FFD700;
+  border-radius: 6px;
+  padding: 6px 16px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-gold:hover {
+  background: rgba(212, 175, 55, 0.1);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.profit-text { color: #00FF88; }
+.loss-text { color: #FF3333; }
+.profit-bg { background-color: rgba(0, 255, 136, 0.1); }
+.loss-bg { background-color: rgba(255, 51, 51, 0.1); }
